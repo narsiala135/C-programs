@@ -1,0 +1,133 @@
+   day 3 test programs
+11.program:
+#include <stdio.h>
+ 
+int main()
+{
+    char sentence[80];
+    int i, vowels = 0, consonants = 0, special = 0;
+ 
+    printf("Enter a sentence \n");
+    gets(sentence);
+    for (i = 0; sentence[i] != '\0'; i++)
+    {
+        if ((sentence[i] == 'a' || sentence[i] == 'e' || sentence[i] ==
+        'i' || sentence[i] == 'o' || sentence[i] == 'u') ||
+        (sentence[i] == 'A' || sentence[i] == 'E' || sentence[i] ==
+        'I' || sentence[i] == 'O' || sentence[i] == 'U'))
+        {
+            vowels = vowels + 1;
+        }
+        else
+        {
+            consonants = consonants + 1;
+        }
+        if (sentence[i] =='\t' ||sentence[i] =='\0' || sentence[i] ==' ')
+        {
+            special = special + 1;
+        }
+    }
+    consonants = consonants - special;
+    printf("No. of vowels in %s = %d\n", sentence, vowels);
+    printf("No. of consonants in %s = %d\n", sentence, consonants);
+}
+
+12.program:
+#include <stdio.h>
+int main()
+{
+    float height;
+ 
+    printf("Enter  the Height (in centimetres) \n");
+    scanf("%f", &height);
+    if (height < 150.0)
+        printf("Dwarf \n");
+    else if ((height >= 150.0) && (height <= 165.0))
+        printf(" Average Height \n");
+    else if ((height > 165.0) && (height <= 195.0))
+        printf("Taller \n");
+    else
+        printf("Abnormal height \n");
+}
+
+13.program:
+#include <stdio.h>
+
+int main() {
+
+  int n, i, flag = 0;
+  printf("Enter a positive integer: ");
+  scanf("%d", &n);
+
+  // 0 and 1 are not prime numbers
+  // change flag to 1 for non-prime number
+  if (n == 0 || n == 1)
+    flag = 1;
+
+  for (i = 2; i <= n / 2; ++i) {
+
+    // if n is divisible by i, then n is not prime
+    // change flag to 1 for non-prime number
+    if (n % i == 0) {
+      flag = 1;
+      break;
+    }
+  }
+
+  // flag is 0 for prime numbers
+  if (flag == 0)
+    printf("%d is a prime number.", n);
+  else
+    printf("%d is not a prime number.", n);
+
+  return 0;
+}
+ 14.program:
+#include <stdio.h>
+ 
+int main()
+{
+    int number, rem, sum = 0, i;
+ 
+    printf("Enter a Number: ");
+    scanf("%d", &number);
+    for (i = 1; i <= (number - 1); i++)
+    {
+        rem = number % i;
+	if (rem == 0)
+        {
+            sum = sum + i;
+        }
+    }
+    if (sum == number)
+        printf("%d is perfect number", number);
+    else
+        printf("%d is not a perfect number", number);
+    return 0;
+}
+
+15.program:
+#include <stdio.h>
+int main() {
+    int num, originalNum, remainder, result = 0;
+    printf("Enter a three-digit integer: ");
+    scanf("%d", &num);
+    originalNum = num;
+
+    while (originalNum != 0) {
+       // remainder contains the last digit
+        remainder = originalNum % 10;
+        
+       result += remainder * remainder * remainder;
+        
+       // removing last digit from the orignal number
+       originalNum /= 10;
+    }
+
+    if (result == num)
+        printf("%d is an Armstrong number.", num);
+    else
+        printf("%d is not an Armstrong number.", num);
+
+    return 0;
+}
